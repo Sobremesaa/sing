@@ -1,7 +1,8 @@
+import java.io.*;
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
-import java.util.EventListener;
+import java.util.*;
 
 public class UserLogin {
 	public static void main(String args[]) {		//主方法
@@ -103,7 +104,7 @@ class UserRegister extends JFrame {
 	class ButtonListener implements ActionListener {		//定义ActionListener类的接口类	
 		public void actionPerformed(ActionEvent e) {
 			if(e.getSource() == btnRegister) {	//用户点击“注册”按钮
-				
+				register();
 			}
 			else dispose();			//用户点击“取消”按钮
 		}
@@ -154,5 +155,13 @@ class UserRegister extends JFrame {
 		ButtonListener Listen = new ButtonListener();	//注册监视器
 		btnRegister.addActionListener(Listen);		//对监视器进行授权
 		btnCancel.addActionListener(Listen);
+	}
+	
+	void register() {
+		String pwd = new String(Pwd.getPassword()).trim();//从密码输入框中读取密码
+		String cpwd = new String(cPwd.getPassword()).trim();
+		ArrayList UserNameList = FileMange.ReadFile(0);
+		String s = "";
+		
 	}
 }
